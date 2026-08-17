@@ -6,13 +6,15 @@ defmodule ExMonty.Native do
   use RustlerPrecompiled,
     otp_app: :ex_monty,
     crate: "ex_monty",
-    base_url: "https://github.com/jtippett/ex_monty/releases/download/v#{@version}",
+    base_url: "https://github.com/pluralsh/ex_monty/releases/download/v#{@version}",
     version: @version,
     targets: ~w(
       aarch64-apple-darwin
       x86_64-apple-darwin
       x86_64-unknown-linux-gnu
+      x86_64-unknown-linux-musl
       aarch64-unknown-linux-gnu
+      aarch64-unknown-linux-musl
     ),
     force_build: System.get_env("EXMONTY_BUILD") in ["1", "true"]
 
